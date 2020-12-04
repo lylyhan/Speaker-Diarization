@@ -1,0 +1,128 @@
+making  p286
+making  p262
+making  p329
+make p329_027
+make p329_026
+make p329_387
+make p329_057
+make p329_358
+make p329_265
+make p329_049
+make p329_191
+make p329_276
+make p329_373
+make p329_041
+make p329_283
+make p329_195
+make p329_189
+make p329_418
+make p329_260
+make p329_242
+make p329_408
+make p329_364
+make p329_125
+make p329_403
+make p329_127
+make p329_168
+make p329_165
+make p329_114
+make p329_412
+make p329_042
+make p329_147
+make p329_263
+make p329_176
+make p329_308
+make p329_396
+make p329_199
+make p329_183
+make p329_328
+make p329_024
+make p329_380
+make p329_420
+make p329_296
+make p329_271
+make p329_303
+make p329_013
+make p329_055
+make p329_269
+make p329_225
+make p329_068
+make p329_122
+make p329_377
+make p329_090
+make p329_393
+make p329_230
+make p329_064
+make p329_363
+make p329_063
+make p329_171
+make p329_108
+make p329_077
+make p329_299
+make p329_179
+make p329_212
+make p329_002
+make p329_197
+make p329_059
+make p329_146
+make p329_281
+make p329_259
+make p329_018
+make p329_132
+make p329_020
+make p329_103
+make p329_350
+make p329_344
+make p329_001
+make p329_366
+make p329_218
+make p329_193
+make p329_414
+make p329_336
+make p329_118
+make p329_079
+make p329_136
+make p329_405
+make p329_022
+make p329_217
+make p329_298
+make p329_223
+make p329_098
+make p329_324
+make p329_200
+make p329_099
+make p329_254
+make p329_152
+make p329_338
+make p329_025
+make p329_368
+make p329_321
+make p329_106
+make p329_352
+make p329_407
+make p329_267
+make p329_370
+make p329_411
+make p329_246
+make p329_070
+make p329_028
+make p329_078
+make p329_369
+make p329_253
+make p329_419
+make p329_384
+make p329_272
+Traceback (most recent call last):
+  File "/home/hh2263/Speaker-Diarization/augmentation_ver3.py", line 112, in <module>
+    augmentation(SRC_path,ir_path,idx_start,idx_end)
+  File "/home/hh2263/Speaker-Diarization/augmentation_ver3.py", line 101, in augmentation
+    jam_out)
+  File "/home/hh2263/muda/muda/core.py", line 171, in save
+    jam.save(filename_jam, strict=strict, fmt=fmt)
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/jams/core.py", line 1778, in save
+    with _open(path_or_file, mode='w', fmt=fmt) as fdesc:
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/jams/core.py", line 142, in _open
+    with open_map[ext](name_or_fdesc, mode=mode) as fdesc:
+OSError: [Errno 122] Disk quota exceeded: '/scratch/hh2263/VCTK/VCTK-Corpus/wav48_muda_2/p329/p329_272._g01.jams'

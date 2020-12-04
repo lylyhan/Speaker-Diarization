@@ -1,0 +1,259 @@
+{
+  "annotations": [
+    {
+      "annotation_metadata": {
+        "curator": {
+          "name": "",
+          "email": ""
+        },
+        "annotator": {},
+        "version": "",
+        "corpus": "",
+        "annotation_tools": "",
+        "annotation_rules": "",
+        "validation": "",
+        "data_source": "librosa beat tracker"
+      },
+      "namespace": "beat",
+      "data": [
+        {
+          "time": 0.06965986394557823,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 0.3947392290249433,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 0.7198185941043084,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 1.0681179138321995,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 1.4164172335600906,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 1.7647165532879818,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 2.159455782312925,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 2.507755102040816,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 2.8328344671201813,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 3.1346938775510202,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 3.5062131519274375,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 3.8545124716553287,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 4.179591836734694,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 4.504671201814059,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 4.876190476190477,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 5.224489795918367,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 5.572789115646258,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 5.897868480725624,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 6.222947845804988,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 6.5712471655328795,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 6.942766439909297,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 7.291065759637188,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 7.662585034013605,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 8.010884353741497,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 8.359183673469389,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 8.70748299319728,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 9.05578231292517,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 9.404081632653062,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 9.729160997732427,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 10.054240362811791,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 10.425759637188209,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 10.7740589569161,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        },
+        {
+          "time": 11.122358276643991,
+          "duration": 0.0,
+          "value": null,
+          "confidence": null
+        }
+      ],
+      "sandbox": {},
+      "time": 0,
+      "duration": null
+    },
+    {
+      "annotation_metadata": {
+        "curator": {
+          "name": "",
+          "email": ""
+        },
+        "annotator": {},
+        "version": "",
+        "corpus": "",
+        "annotation_tools": "",
+        "annotation_rules": "",
+        "validation": "",
+        "data_source": "librosa tempo estimator"
+      },
+      "namespace": "tempo",
+      "data": [
+        {
+          "time": 0.0,
+          "duration": 11.678185941043084,
+          "value": 172.265625,
+          "confidence": 1.0
+        }
+      ],
+      "sandbox": {},
+      "time": 0,
+      "duration": 11.678185941043084
+    }
+  ],
+  "file_metadata": {
+    "title": "",
+    "artist": "",
+    "release": "",
+    "duration": 11.678185941043084,
+    "identifiers": {},
+    "jams_version": "0.3.4"
+  },
+  "sandbox": {}
+}

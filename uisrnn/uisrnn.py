@@ -142,13 +142,17 @@ class UISRNN:
         'crp_alpha': self.crp_alpha,
         'sigma2': self.sigma2.detach().cpu().numpy()}, filepath)
 
-  def load(self, filepath):
+  def load(self, filepath,loadoption=None):
     """Load the model from a file.
 
     Args:
       filepath: the path of the file.
     """
-    var_dict = torch.load(filepath)
+    if loadoption=='cpu':
+      var_dict = torch.load(filepath,map_location=torch.device('cpu'))
+    else:
+      var_dict = torch.load(filepath)
+
     self.rnn_model.load_state_dict(var_dict['rnn_state_dict'])
     self.rnn_init_hidden = nn.Parameter(
         torch.from_numpy(var_dict['rnn_init_hidden']).to(self.device))
@@ -513,6 +517,7 @@ class UISRNN:
         torch.from_numpy(test_sequence).float()).to(self.device)
     # bookkeeping for beam search
     beam_set = [BeamState()]
+    final_iter = 0
     for num_iter in np.arange(0, args.test_iteration * test_sequence_length,
                               args.look_ahead):
       max_clusters = max([len(beam_state.mean_set) for beam_state in beam_set])
@@ -545,8 +550,13 @@ class UISRNN:
             beam_set[prev_beam_rank], look_ahead_seq, cluster_seq)
         updated_beam_set.append(updated_beam_state)
       beam_set = updated_beam_set
+      final_iter = num_iter
     predicted_cluster_id = beam_set[0].trace[-test_sequence_length:]
-    return predicted_cluster_id
+    predicted_score = beam_set[0].neg_likelihood
+    #only calculate at the end of each array, but should record how many steps in the array
+    iters = final_iter + 1
+    avg_predicted_score = beam_set[0].neg_likelihood / iters #normalized #timesteps, each timestep induces a loss
+    return predicted_cluster_id,predicted_score,avg_predicted_score
 
   def predict(self, test_sequences, args):
     """Predict labels for a single or many test sequences using UISRNN model.
@@ -575,3 +585,141 @@ class UISRNN:
       return [self.predict_single(test_sequence, args)
               for test_sequence in test_sequences]
     raise TypeError('test_sequences should be either a list or numpy array.')
+
+
+  def online_predict_single(self, test_sequence, last_set,last_iter, reset,args):
+    """Predict labels for a single test sequence using UISRNN model.
+
+      Args:
+        test_sequence: the test observation sequence, which is 2-dim numpy array
+          of real numbers, of size `N * D`.
+
+          - `N`: length of one test utterance.
+          - `D` : observation dimension.
+
+          For example:
+        ```
+        test_sequence =
+        [[2.2 -1.0 3.0 5.6]    --> 1st entry of utterance 'iccc'
+         [0.5 1.8 -3.2 0.4]    --> 2nd entry of utterance 'iccc'
+         [-2.2 5.0 1.8 3.7]    --> 3rd entry of utterance 'iccc'
+         [-3.8 0.1 1.4 3.3]    --> 4th entry of utterance 'iccc'
+         [0.1 2.7 3.5 -1.7]]   --> 5th entry of utterance 'iccc'
+        ```
+          Here `N=5`, `D=4`.
+        args: Inference configurations. See `arguments.py` for details.
+
+      Returns:
+        predicted_cluster_id: predicted speaker id sequence, which is
+          an array of integers, of size `N`.
+          For example, `predicted_cluster_id = [0, 1, 0, 0, 1]`
+
+      Raises:
+        TypeError: If test_sequence is of wrong type.
+        ValueError: If test_sequence has wrong dimension.
+    """
+    # check type
+    if (not isinstance(test_sequence, np.ndarray) or
+        test_sequence.dtype != float):
+      raise TypeError('test_sequence should be a numpy array of float type.')
+    # check dimension
+    if test_sequence.ndim != 2:
+      raise ValueError('test_sequence must be 2-dim array.')
+    # check size
+    test_sequence_length, observation_dim = test_sequence.shape
+    if observation_dim != self.observation_dim:
+      raise ValueError('test_sequence does not match the dimension specified '
+                       'by args.observation_dim.')
+
+    self.rnn_model.eval()
+    test_sequence = np.tile(test_sequence, (args.test_iteration, 1)) #copy the sequence 
+    test_sequence = autograd.Variable(
+        torch.from_numpy(test_sequence).float()).to(self.device) #make it differentiable
+    # bookkeeping for beam search
+    if reset: #only reinitialize beam_set when needed
+      beam_set = [BeamState()]
+      prev_loss = 0 
+    else:
+      beam_set = last_set
+      prev_loss = last_set[0].neg_likelihood
+
+    final_iter = 0
+    for num_iter in np.arange(0, args.test_iteration * test_sequence_length, #iterate over sequence, in chunks
+                              args.look_ahead):
+      max_clusters = max([len(beam_state.mean_set) for beam_state in beam_set]) #define maximum cluster
+      look_ahead_seq = test_sequence[num_iter:  num_iter + args.look_ahead, :] #define chunk (lookahead,time)
+      look_ahead_seq_length = look_ahead_seq.shape[0]
+      score_set = float('inf') * np.ones( #define scores for all possible labels?
+          np.append(
+              args.beam_size, max_clusters + 1 + np.arange(
+                  look_ahead_seq_length)))
+      for beam_rank, beam_state in enumerate(beam_set):
+        beam_score_set = self._calculate_score(beam_state, look_ahead_seq) 
+        score_set[beam_rank, :] = np.pad(
+            beam_score_set,
+            np.tile([[0, max_clusters - len(beam_state.mean_set)]],
+                    (look_ahead_seq_length, 1)), 'constant',
+            constant_values=float('inf'))
+      # find top scores
+      score_ranked = np.sort(score_set, axis=None)
+      score_ranked[score_ranked == float('inf')] = 0
+      score_ranked = np.trim_zeros(score_ranked) #only keep effective scores
+      idx_ranked = np.argsort(score_set, axis=None)
+      updated_beam_set = []
+      
+      for new_beam_rank in range(
+          np.min((len(score_ranked), args.beam_size))):
+        total_idx = np.unravel_index(idx_ranked[new_beam_rank],
+                                     score_set.shape)
+        prev_beam_rank = total_idx[0]
+        cluster_seq = total_idx[1:]
+        updated_beam_state = self._update_beam_state(
+            beam_set[prev_beam_rank], look_ahead_seq, cluster_seq)
+        updated_beam_set.append(updated_beam_state)
+      beam_set = updated_beam_set
+      final_iter = num_iter
+    predicted_cluster_id = beam_set[0].trace[-test_sequence_length:] #designate the final prediction of labels
+    predicted_score = beam_set[0].neg_likelihood
+    #only calculate at the end of each array, but should record how many steps in the array
+    seg_score = predicted_score-prev_loss
+    seg_iters = final_iter + 1
+    iters = seg_iters + last_iter
+    avg_predicted_score = beam_set[0].neg_likelihood / iters #normalized #timesteps, each timestep induces a loss
+    return predicted_cluster_id,beam_set,predicted_score,avg_predicted_score,iters,seg_score,seg_iters 
+
+
+  def online_predict(self, test_sequences, last_set,last_iter, reset,args):
+    """Predict labels for a single or many test sequences using UISRNN model.
+
+    Args:
+      test_sequences: Either a list of test sequences, or a single test
+        sequence. Each test sequence is a 2-dim numpy array
+        of real numbers. See `predict_single()` for details.
+      args: Inference configurations. See `arguments.py` for details.
+
+    Returns:
+      predicted_cluster_ids: Predicted labels for test_sequences.
+
+        1. if test_sequences is a list, predicted_cluster_ids will be a list
+           of the same size, where each element being a 1-dim list of strings.
+        2. if test_sequences is a single sequence, predicted_cluster_ids will
+           be a 1-dim list of strings
+
+    Raises:
+      TypeError: If test_sequences is of wrong type.
+    """
+    # check type
+    if isinstance(test_sequences, np.ndarray):
+      predicted,current_set,predicted_score,avg_predicted_score,iters,seg_score,seg_iters  = self.online_predict_single(test_sequences, last_set,last_iter,reset,args)
+      return predicted,current_set,predicted_score,avg_predicted_score,iters,seg_score, seg_iters 
+    if isinstance(test_sequences, list):
+      predicted_labels=[]
+      current_set = last_set
+      for test_sequence in test_sequences:
+        predicted, last_set,predicted_score,avg_predicted_score,iters,seg_score,seg_iters  = self.online_predict_single(test_sequence, last_set,True,args)
+        predicted_labels.append(predicted)
+        current_set = last_set
+        last_iter = iters
+      return predicted_labels,current_set,predicted_score,avg_predicted_score,iters,seg_score,seg_iters 
+    raise TypeError('test_sequences should be either a list or numpy array.')
+

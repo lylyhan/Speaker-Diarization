@@ -1,0 +1,654 @@
+2020-08-15 11:04:30.711197: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-08-15 11:04:30.781512: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2599775000 Hz
+2020-08-15 11:04:30.781920: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2b9d418e5820 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-08-15 11:04:30.781974: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-08-15 11:04:30.784349: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-08-15 11:04:31.028559: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:05:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-08-15 11:04:31.029560: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties: 
+pciBusID: 0000:85:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-08-15 11:04:31.029621: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-08-15 11:04:31.372878: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-08-15 11:04:32.080798: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-08-15 11:04:32.231575: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-08-15 11:04:32.617060: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-08-15 11:04:32.923983: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-08-15 11:04:34.032342: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-08-15 11:04:34.038870: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1
+2020-08-15 11:04:49.279417: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-08-15 11:04:49.279679: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 
+2020-08-15 11:04:49.279697: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N 
+2020-08-15 11:04:49.279701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N 
+2020-08-15 11:04:49.283659: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/device:GPU:0 with 14601 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:05:00.0, compute capability: 6.0)
+2020-08-15 11:04:49.322474: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/device:GPU:1 with 14601 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:85:00.0, compute capability: 6.0)
+2020-08-15 11:04:49.327226: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2b9e81c7bb60 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-08-15 11:04:49.327243: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2020-08-15 11:04:49.327249: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Tesla P100-PCIE-16GB, Compute Capability 6.0
+2020-08-15 11:04:49.331314: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
+pciBusID: 0000:05:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-08-15 11:04:49.333418: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties: 
+pciBusID: 0000:85:00.0 name: Tesla P100-PCIE-16GB computeCapability: 6.0
+coreClock: 1.3285GHz coreCount: 56 deviceMemorySize: 15.90GiB deviceMemoryBandwidth: 681.88GiB/s
+2020-08-15 11:04:49.333480: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-08-15 11:04:49.333516: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-08-15 11:04:49.333544: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-08-15 11:04:49.333569: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-08-15 11:04:49.333594: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-08-15 11:04:49.333619: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-08-15 11:04:49.333644: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-08-15 11:04:49.341464: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1
+2020-08-15 11:04:49.341540: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-08-15 11:04:49.341556: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 
+2020-08-15 11:04:49.341566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N 
+2020-08-15 11:04:49.341575: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N 
+2020-08-15 11:04:49.347298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/device:GPU:0 with 14601 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:05:00.0, compute capability: 6.0)
+2020-08-15 11:04:49.349166: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/device:GPU:1 with 14601 MB memory) -> physical GPU (device: 1, name: Tesla P100-PCIE-16GB, pci bus id: 0000:85:00.0, compute capability: 6.0)
+Default GPU Device:/device:GPU:0
+Iter: 0  	Training Loss: -582.3654    
+    Negative Log Likelihood: 7.0721	Sigma2 Prior: -589.4382	Regularization: 0.0007
+Iter: 10  	Training Loss: -587.4466    
+    Negative Log Likelihood: 4.5653	Sigma2 Prior: -592.0126	Regularization: 0.0007
+Iter: 20  	Training Loss: -591.9385    
+    Negative Log Likelihood: 2.6821	Sigma2 Prior: -594.6213	Regularization: 0.0007
+Iter: 30  	Training Loss: -595.4280    
+    Negative Log Likelihood: 1.8418	Sigma2 Prior: -597.2706	Regularization: 0.0007
+Iter: 40  	Training Loss: -598.2469    
+    Negative Log Likelihood: 1.7134	Sigma2 Prior: -599.9611	Regularization: 0.0007
+Iter: 50  	Training Loss: -600.9907    
+    Negative Log Likelihood: 1.7013	Sigma2 Prior: -602.6927	Regularization: 0.0007
+Iter: 60  	Training Loss: -603.7645    
+    Negative Log Likelihood: 1.6996	Sigma2 Prior: -605.4648	Regularization: 0.0007
+Iter: 70  	Training Loss: -606.5779    
+    Negative Log Likelihood: 1.7044	Sigma2 Prior: -608.2830	Regularization: 0.0007
+Iter: 80  	Training Loss: -609.4365    
+    Negative Log Likelihood: 1.7073	Sigma2 Prior: -611.1446	Regularization: 0.0007
+Iter: 90  	Training Loss: -612.3301    
+    Negative Log Likelihood: 1.7221	Sigma2 Prior: -614.0530	Regularization: 0.0007
+Iter: 100  	Training Loss: -615.3448    
+    Negative Log Likelihood: 1.6638	Sigma2 Prior: -617.0094	Regularization: 0.0007
+Iter: 110  	Training Loss: -618.3562    
+    Negative Log Likelihood: 1.6610	Sigma2 Prior: -620.0179	Regularization: 0.0007
+Iter: 120  	Training Loss: -621.4257    
+    Negative Log Likelihood: 1.6521	Sigma2 Prior: -623.0785	Regularization: 0.0007
+Iter: 130  	Training Loss: -624.5464    
+    Negative Log Likelihood: 1.6460	Sigma2 Prior: -626.1931	Regularization: 0.0007
+Iter: 140  	Training Loss: -627.6859    
+    Negative Log Likelihood: 1.6774	Sigma2 Prior: -629.3640	Regularization: 0.0007
+Iter: 150  	Training Loss: -630.9482    
+    Negative Log Likelihood: 1.6430	Sigma2 Prior: -632.5919	Regularization: 0.0007
+Iter: 160  	Training Loss: -634.2728    
+    Negative Log Likelihood: 1.6081	Sigma2 Prior: -635.8817	Regularization: 0.0007
+Iter: 170  	Training Loss: -637.6108    
+    Negative Log Likelihood: 1.6242	Sigma2 Prior: -639.2357	Regularization: 0.0007
+Iter: 180  	Training Loss: -641.0132    
+    Negative Log Likelihood: 1.6403	Sigma2 Prior: -642.6542	Regularization: 0.0007
+Iter: 190  	Training Loss: -644.4929    
+    Negative Log Likelihood: 1.6487	Sigma2 Prior: -646.1423	Regularization: 0.0007
+Iter: 200  	Training Loss: -648.0670    
+    Negative Log Likelihood: 1.6335	Sigma2 Prior: -649.7012	Regularization: 0.0007
+Iter: 210  	Training Loss: -651.6995    
+    Negative Log Likelihood: 1.6316	Sigma2 Prior: -653.3318	Regularization: 0.0007
+Iter: 220  	Training Loss: -655.3878    
+    Negative Log Likelihood: 1.6536	Sigma2 Prior: -657.0421	Regularization: 0.0007
+Iter: 230  	Training Loss: -659.2391    
+    Negative Log Likelihood: 1.5915	Sigma2 Prior: -660.8314	Regularization: 0.0007
+Iter: 240  	Training Loss: -663.0688    
+    Negative Log Likelihood: 1.6361	Sigma2 Prior: -664.7056	Regularization: 0.0007
+Iter: 250  	Training Loss: -667.0628    
+    Negative Log Likelihood: 1.6030	Sigma2 Prior: -668.6665	Regularization: 0.0007
+Iter: 260  	Training Loss: -671.0818    
+    Negative Log Likelihood: 1.6392	Sigma2 Prior: -672.7217	Regularization: 0.0007
+Iter: 270  	Training Loss: -675.2089    
+    Negative Log Likelihood: 1.6592	Sigma2 Prior: -676.8688	Regularization: 0.0007
+Iter: 280  	Training Loss: -679.4694    
+    Negative Log Likelihood: 1.6487	Sigma2 Prior: -681.1188	Regularization: 0.0007
+Iter: 290  	Training Loss: -683.8602    
+    Negative Log Likelihood: 1.6132	Sigma2 Prior: -685.4741	Regularization: 0.0007
+Iter: 300  	Training Loss: -688.2909    
+    Negative Log Likelihood: 1.6499	Sigma2 Prior: -689.9415	Regularization: 0.0007
+Iter: 310  	Training Loss: -692.8279    
+    Negative Log Likelihood: 1.6952	Sigma2 Prior: -694.5239	Regularization: 0.0007
+Iter: 320  	Training Loss: -697.5115    
+    Negative Log Likelihood: 1.7192	Sigma2 Prior: -699.2315	Regularization: 0.0007
+Iter: 330  	Training Loss: -702.3734    
+    Negative Log Likelihood: 1.6918	Sigma2 Prior: -704.0659	Regularization: 0.0007
+Iter: 340  	Training Loss: -707.2925    
+    Negative Log Likelihood: 1.7456	Sigma2 Prior: -709.0389	Regularization: 0.0007
+Iter: 350  	Training Loss: -712.3661    
+    Negative Log Likelihood: 1.7919	Sigma2 Prior: -714.1588	Regularization: 0.0007
+Iter: 360  	Training Loss: -717.6210    
+    Negative Log Likelihood: 1.8092	Sigma2 Prior: -719.4310	Regularization: 0.0007
+Iter: 370  	Training Loss: -723.0620    
+    Negative Log Likelihood: 1.8002	Sigma2 Prior: -724.8630	Regularization: 0.0007
+Iter: 380  	Training Loss: -728.5939    
+    Negative Log Likelihood: 1.8782	Sigma2 Prior: -730.4728	Regularization: 0.0007
+Iter: 390  	Training Loss: -734.3911    
+    Negative Log Likelihood: 1.8758	Sigma2 Prior: -736.2676	Regularization: 0.0007
+Iter: 400  	Training Loss: -740.3694    
+    Negative Log Likelihood: 1.8918	Sigma2 Prior: -742.2620	Regularization: 0.0007
+Iter: 410  	Training Loss: -746.5363    
+    Negative Log Likelihood: 1.9275	Sigma2 Prior: -748.4645	Regularization: 0.0007
+Iter: 420  	Training Loss: -752.8893    
+    Negative Log Likelihood: 2.0047	Sigma2 Prior: -754.8947	Regularization: 0.0007
+Iter: 430  	Training Loss: -759.5345    
+    Negative Log Likelihood: 2.0370	Sigma2 Prior: -761.5723	Regularization: 0.0007
+Iter: 440  	Training Loss: -766.4174    
+    Negative Log Likelihood: 2.0906	Sigma2 Prior: -768.5087	Regularization: 0.0007
+Iter: 450  	Training Loss: -773.5922    
+    Negative Log Likelihood: 2.1404	Sigma2 Prior: -775.7333	Regularization: 0.0007
+Iter: 460  	Training Loss: -781.0915    
+    Negative Log Likelihood: 2.1804	Sigma2 Prior: -783.2726	Regularization: 0.0007
+Iter: 470  	Training Loss: -788.9206    
+    Negative Log Likelihood: 2.2248	Sigma2 Prior: -791.1461	Regularization: 0.0007
+Iter: 480  	Training Loss: -797.0907    
+    Negative Log Likelihood: 2.3022	Sigma2 Prior: -799.3937	Regularization: 0.0007
+Iter: 490  	Training Loss: -805.6978    
+    Negative Log Likelihood: 2.3472	Sigma2 Prior: -808.0457	Regularization: 0.0007
+Iter: 500  	Training Loss: -814.6421    
+    Negative Log Likelihood: 2.5033	Sigma2 Prior: -817.1462	Regularization: 0.0007
+Iter: 510  	Training Loss: -824.1985    
+    Negative Log Likelihood: 2.5447	Sigma2 Prior: -826.7440	Regularization: 0.0007
+Iter: 520  	Training Loss: -834.2517    
+    Negative Log Likelihood: 2.6498	Sigma2 Prior: -836.9022	Regularization: 0.0007
+Iter: 530  	Training Loss: -844.9479    
+    Negative Log Likelihood: 2.7281	Sigma2 Prior: -847.6768	Regularization: 0.0007
+Iter: 540  	Training Loss: -856.2962    
+    Negative Log Likelihood: 2.8690	Sigma2 Prior: -859.1660	Regularization: 0.0007
+Iter: 550  	Training Loss: -868.5178    
+    Negative Log Likelihood: 2.9434	Sigma2 Prior: -871.4619	Regularization: 0.0007
+Iter: 560  	Training Loss: -881.5836    
+    Negative Log Likelihood: 3.0957	Sigma2 Prior: -884.6800	Regularization: 0.0007
+Iter: 570  	Training Loss: -895.6880    
+    Negative Log Likelihood: 3.2987	Sigma2 Prior: -898.9875	Regularization: 0.0007
+Iter: 580  	Training Loss: -911.0744    
+    Negative Log Likelihood: 3.4734	Sigma2 Prior: -914.5485	Regularization: 0.0007
+Iter: 590  	Training Loss: -927.9026    
+    Negative Log Likelihood: 3.7438	Sigma2 Prior: -931.6472	Regularization: 0.0007
+Iter: 600  	Training Loss: -946.6133    
+    Negative Log Likelihood: 3.9596	Sigma2 Prior: -950.5737	Regularization: 0.0007
+Iter: 610  	Training Loss: -967.4255    
+    Negative Log Likelihood: 4.3818	Sigma2 Prior: -971.8080	Regularization: 0.0007
+Iter: 620  	Training Loss: -991.1755    
+    Negative Log Likelihood: 4.7659	Sigma2 Prior: -995.9421	Regularization: 0.0007
+Iter: 630  	Training Loss: -1018.4940    
+    Negative Log Likelihood: 5.4076	Sigma2 Prior: -1023.9023	Regularization: 0.0007
+Iter: 640  	Training Loss: -1051.2400    
+    Negative Log Likelihood: 5.8820	Sigma2 Prior: -1057.1227	Regularization: 0.0007
+Iter: 650  	Training Loss: -1090.8080    
+    Negative Log Likelihood: 7.1469	Sigma2 Prior: -1097.9556	Regularization: 0.0008
+Iter: 660  	Training Loss: -1142.1324    
+    Negative Log Likelihood: 8.7464	Sigma2 Prior: -1150.8796	Regularization: 0.0008
+Iter: 670  	Training Loss: -1214.5552    
+    Negative Log Likelihood: 11.0493	Sigma2 Prior: -1225.6051	Regularization: 0.0008
+Iter: 680  	Training Loss: -1332.9834    
+    Negative Log Likelihood: 18.3029	Sigma2 Prior: -1351.2870	Regularization: 0.0008
+Iter: 690  	Training Loss: -1577.5892    
+    Negative Log Likelihood: 175.0997	Sigma2 Prior: -1752.6897	Regularization: 0.0008
+Iter: 700  	Training Loss: -1645.5028    
+    Negative Log Likelihood: 80.8692	Sigma2 Prior: -1726.3727	Regularization: 0.0008
+Iter: 710  	Training Loss: -1602.9462    
+    Negative Log Likelihood: 109.7269	Sigma2 Prior: -1712.6738	Regularization: 0.0008
+Iter: 720  	Training Loss: -1602.1284    
+    Negative Log Likelihood: 124.2225	Sigma2 Prior: -1726.3517	Regularization: 0.0008
+Iter: 730  	Training Loss: -1606.8733    
+    Negative Log Likelihood: 127.4570	Sigma2 Prior: -1734.3311	Regularization: 0.0008
+Iter: 740  	Training Loss: -1612.5985    
+    Negative Log Likelihood: 131.6296	Sigma2 Prior: -1744.2289	Regularization: 0.0008
+Iter: 750  	Training Loss: -1613.3088    
+    Negative Log Likelihood: 133.2265	Sigma2 Prior: -1746.5360	Regularization: 0.0008
+Iter: 760  	Training Loss: -1612.3090    
+    Negative Log Likelihood: 143.1575	Sigma2 Prior: -1755.4672	Regularization: 0.0008
+Iter: 770  	Training Loss: -1614.8718    
+    Negative Log Likelihood: 143.4470	Sigma2 Prior: -1758.3196	Regularization: 0.0008
+Iter: 780  	Training Loss: -1614.5986    
+    Negative Log Likelihood: 142.6115	Sigma2 Prior: -1757.2109	Regularization: 0.0008
+Iter: 790  	Training Loss: -1617.4391    
+    Negative Log Likelihood: 142.4524	Sigma2 Prior: -1759.8922	Regularization: 0.0008
+Iter: 800  	Training Loss: -1622.9983    
+    Negative Log Likelihood: 143.7998	Sigma2 Prior: -1766.7988	Regularization: 0.0008
+Iter: 810  	Training Loss: -1621.2670    
+    Negative Log Likelihood: 142.6243	Sigma2 Prior: -1763.8920	Regularization: 0.0008
+Iter: 820  	Training Loss: -1620.2479    
+    Negative Log Likelihood: 145.8025	Sigma2 Prior: -1766.0511	Regularization: 0.0008
+Iter: 830  	Training Loss: -1623.6543    
+    Negative Log Likelihood: 143.5345	Sigma2 Prior: -1767.1895	Regularization: 0.0008
+Iter: 840  	Training Loss: -1618.9666    
+    Negative Log Likelihood: 148.6898	Sigma2 Prior: -1767.6571	Regularization: 0.0008
+Iter: 850  	Training Loss: -1622.4253    
+    Negative Log Likelihood: 144.8274	Sigma2 Prior: -1767.2534	Regularization: 0.0008
+Iter: 860  	Training Loss: -1621.7548    
+    Negative Log Likelihood: 149.1412	Sigma2 Prior: -1770.8967	Regularization: 0.0008
+Iter: 870  	Training Loss: -1620.2607    
+    Negative Log Likelihood: 149.0268	Sigma2 Prior: -1769.2883	Regularization: 0.0008
+Iter: 880  	Training Loss: -1619.9657    
+    Negative Log Likelihood: 151.4994	Sigma2 Prior: -1771.4658	Regularization: 0.0008
+Iter: 890  	Training Loss: -1623.5477    
+    Negative Log Likelihood: 146.6096	Sigma2 Prior: -1770.1581	Regularization: 0.0008
+Iter: 900  	Training Loss: -1620.1603    
+    Negative Log Likelihood: 150.3333	Sigma2 Prior: -1770.4943	Regularization: 0.0008
+Iter: 910  	Training Loss: -1626.2866    
+    Negative Log Likelihood: 143.9644	Sigma2 Prior: -1770.2518	Regularization: 0.0008
+Iter: 920  	Training Loss: -1620.3696    
+    Negative Log Likelihood: 149.7744	Sigma2 Prior: -1770.1448	Regularization: 0.0008
+Iter: 930  	Training Loss: -1621.4839    
+    Negative Log Likelihood: 150.2315	Sigma2 Prior: -1771.7162	Regularization: 0.0008
+Iter: 940  	Training Loss: -1622.0944    
+    Negative Log Likelihood: 148.3780	Sigma2 Prior: -1770.4731	Regularization: 0.0008
+Iter: 950  	Training Loss: -1620.9396    
+    Negative Log Likelihood: 150.3994	Sigma2 Prior: -1771.3398	Regularization: 0.0008
+Iter: 960  	Training Loss: -1619.9271    
+    Negative Log Likelihood: 151.7114	Sigma2 Prior: -1771.6394	Regularization: 0.0008
+Iter: 970  	Training Loss: -1620.6024    
+    Negative Log Likelihood: 151.6534	Sigma2 Prior: -1772.2566	Regularization: 0.0008
+Iter: 980  	Training Loss: -1625.1497    
+    Negative Log Likelihood: 147.0138	Sigma2 Prior: -1772.1643	Regularization: 0.0008
+Iter: 990  	Training Loss: -1620.8867    
+    Negative Log Likelihood: 150.8806	Sigma2 Prior: -1771.7682	Regularization: 0.0008
+Changing learning rate to: 5e-05
+Iter: 1000  	Training Loss: -1621.1425    
+    Negative Log Likelihood: 151.4164	Sigma2 Prior: -1772.5597	Regularization: 0.0008
+Iter: 1010  	Training Loss: -1621.7279    
+    Negative Log Likelihood: 149.7790	Sigma2 Prior: -1771.5077	Regularization: 0.0008
+Iter: 1020  	Training Loss: -1627.0686    
+    Negative Log Likelihood: 144.0824	Sigma2 Prior: -1771.1519	Regularization: 0.0008
+Iter: 1030  	Training Loss: -1625.1190    
+    Negative Log Likelihood: 146.4112	Sigma2 Prior: -1771.5311	Regularization: 0.0008
+Iter: 1040  	Training Loss: -1623.5680    
+    Negative Log Likelihood: 151.3746	Sigma2 Prior: -1774.9435	Regularization: 0.0008
+Iter: 1050  	Training Loss: -1623.7257    
+    Negative Log Likelihood: 147.9893	Sigma2 Prior: -1771.7159	Regularization: 0.0008
+Iter: 1060  	Training Loss: -1626.6644    
+    Negative Log Likelihood: 147.3625	Sigma2 Prior: -1774.0278	Regularization: 0.0008
+Iter: 1070  	Training Loss: -1623.1676    
+    Negative Log Likelihood: 150.6211	Sigma2 Prior: -1773.7896	Regularization: 0.0008
+Iter: 1080  	Training Loss: -1626.5189    
+    Negative Log Likelihood: 145.6245	Sigma2 Prior: -1772.1443	Regularization: 0.0008
+Iter: 1090  	Training Loss: -1621.7395    
+    Negative Log Likelihood: 151.5796	Sigma2 Prior: -1773.3199	Regularization: 0.0008
+Iter: 1100  	Training Loss: -1622.5620    
+    Negative Log Likelihood: 150.9398	Sigma2 Prior: -1773.5027	Regularization: 0.0008
+Iter: 1110  	Training Loss: -1626.5825    
+    Negative Log Likelihood: 148.8772	Sigma2 Prior: -1775.4606	Regularization: 0.0008
+Iter: 1120  	Training Loss: -1620.8539    
+    Negative Log Likelihood: 151.8275	Sigma2 Prior: -1772.6823	Regularization: 0.0008
+Iter: 1130  	Training Loss: -1623.2405    
+    Negative Log Likelihood: 152.6059	Sigma2 Prior: -1775.8472	Regularization: 0.0008
+Iter: 1140  	Training Loss: -1627.8955    
+    Negative Log Likelihood: 145.8856	Sigma2 Prior: -1773.7820	Regularization: 0.0008
+Iter: 1150  	Training Loss: -1624.6232    
+    Negative Log Likelihood: 149.1529	Sigma2 Prior: -1773.7769	Regularization: 0.0008
+Iter: 1160  	Training Loss: -1623.5789    
+    Negative Log Likelihood: 149.5991	Sigma2 Prior: -1773.1788	Regularization: 0.0008
+Iter: 1170  	Training Loss: -1625.2767    
+    Negative Log Likelihood: 148.4290	Sigma2 Prior: -1773.7065	Regularization: 0.0008
+Iter: 1180  	Training Loss: -1626.6156    
+    Negative Log Likelihood: 148.3207	Sigma2 Prior: -1774.9373	Regularization: 0.0008
+Iter: 1190  	Training Loss: -1623.1134    
+    Negative Log Likelihood: 152.2354	Sigma2 Prior: -1775.3497	Regularization: 0.0008
+Iter: 1200  	Training Loss: -1624.8466    
+    Negative Log Likelihood: 151.5015	Sigma2 Prior: -1776.3489	Regularization: 0.0008
+Iter: 1210  	Training Loss: -1619.2246    
+    Negative Log Likelihood: 156.0167	Sigma2 Prior: -1775.2422	Regularization: 0.0008
+Iter: 1220  	Training Loss: -1623.8239    
+    Negative Log Likelihood: 153.3587	Sigma2 Prior: -1777.1833	Regularization: 0.0008
+Iter: 1230  	Training Loss: -1624.1768    
+    Negative Log Likelihood: 149.3831	Sigma2 Prior: -1773.5607	Regularization: 0.0008
+Iter: 1240  	Training Loss: -1625.1656    
+    Negative Log Likelihood: 152.7978	Sigma2 Prior: -1777.9644	Regularization: 0.0008
+Iter: 1250  	Training Loss: -1626.7150    
+    Negative Log Likelihood: 149.9192	Sigma2 Prior: -1776.6350	Regularization: 0.0008
+Iter: 1260  	Training Loss: -1624.9783    
+    Negative Log Likelihood: 149.3166	Sigma2 Prior: -1774.2958	Regularization: 0.0008
+Iter: 1270  	Training Loss: -1624.6151    
+    Negative Log Likelihood: 152.6029	Sigma2 Prior: -1777.2189	Regularization: 0.0008
+Iter: 1280  	Training Loss: -1625.7854    
+    Negative Log Likelihood: 148.3241	Sigma2 Prior: -1774.1104	Regularization: 0.0008
+Iter: 1290  	Training Loss: -1625.0973    
+    Negative Log Likelihood: 150.3795	Sigma2 Prior: -1775.4777	Regularization: 0.0008
+Iter: 1300  	Training Loss: -1626.8563    
+    Negative Log Likelihood: 149.4282	Sigma2 Prior: -1776.2854	Regularization: 0.0008
+Iter: 1310  	Training Loss: -1624.8699    
+    Negative Log Likelihood: 152.9768	Sigma2 Prior: -1777.8475	Regularization: 0.0008
+Iter: 1320  	Training Loss: -1626.2433    
+    Negative Log Likelihood: 151.1867	Sigma2 Prior: -1777.4308	Regularization: 0.0008
+Iter: 1330  	Training Loss: -1628.0450    
+    Negative Log Likelihood: 151.8798	Sigma2 Prior: -1779.9257	Regularization: 0.0008
+Iter: 1340  	Training Loss: -1629.6134    
+    Negative Log Likelihood: 145.5613	Sigma2 Prior: -1775.1755	Regularization: 0.0009
+Iter: 1350  	Training Loss: -1627.2100    
+    Negative Log Likelihood: 150.7445	Sigma2 Prior: -1777.9553	Regularization: 0.0009
+Iter: 1360  	Training Loss: -1626.7948    
+    Negative Log Likelihood: 151.1682	Sigma2 Prior: -1777.9639	Regularization: 0.0009
+Iter: 1370  	Training Loss: -1628.9741    
+    Negative Log Likelihood: 148.0827	Sigma2 Prior: -1777.0576	Regularization: 0.0009
+Iter: 1380  	Training Loss: -1627.0582    
+    Negative Log Likelihood: 149.9851	Sigma2 Prior: -1777.0442	Regularization: 0.0009
+Iter: 1390  	Training Loss: -1626.5863    
+    Negative Log Likelihood: 150.7327	Sigma2 Prior: -1777.3198	Regularization: 0.0009
+Iter: 1400  	Training Loss: -1631.5901    
+    Negative Log Likelihood: 145.4831	Sigma2 Prior: -1777.0741	Regularization: 0.0009
+Iter: 1410  	Training Loss: -1625.6172    
+    Negative Log Likelihood: 150.5861	Sigma2 Prior: -1776.2041	Regularization: 0.0009
+Iter: 1420  	Training Loss: -1624.8785    
+    Negative Log Likelihood: 154.8347	Sigma2 Prior: -1779.7141	Regularization: 0.0009
+Iter: 1430  	Training Loss: -1628.0304    
+    Negative Log Likelihood: 149.8638	Sigma2 Prior: -1777.8950	Regularization: 0.0009
+Iter: 1440  	Training Loss: -1623.6799    
+    Negative Log Likelihood: 152.4356	Sigma2 Prior: -1776.1163	Regularization: 0.0009
+Iter: 1450  	Training Loss: -1630.2860    
+    Negative Log Likelihood: 150.5341	Sigma2 Prior: -1780.8209	Regularization: 0.0009
+Iter: 1460  	Training Loss: -1627.7635    
+    Negative Log Likelihood: 146.6293	Sigma2 Prior: -1774.3937	Regularization: 0.0009
+Iter: 1470  	Training Loss: -1627.8961    
+    Negative Log Likelihood: 149.4947	Sigma2 Prior: -1777.3917	Regularization: 0.0009
+Iter: 1480  	Training Loss: -1625.6912    
+    Negative Log Likelihood: 152.3083	Sigma2 Prior: -1778.0002	Regularization: 0.0009
+Iter: 1490  	Training Loss: -1629.3613    
+    Negative Log Likelihood: 151.2182	Sigma2 Prior: -1780.5803	Regularization: 0.0009
+Iter: 1500  	Training Loss: -1622.6492    
+    Negative Log Likelihood: 156.9933	Sigma2 Prior: -1779.6433	Regularization: 0.0009
+Iter: 1510  	Training Loss: -1629.6044    
+    Negative Log Likelihood: 149.0613	Sigma2 Prior: -1778.6665	Regularization: 0.0009
+Iter: 1520  	Training Loss: -1627.5010    
+    Negative Log Likelihood: 150.7545	Sigma2 Prior: -1778.2563	Regularization: 0.0009
+Iter: 1530  	Training Loss: -1627.4666    
+    Negative Log Likelihood: 152.5688	Sigma2 Prior: -1780.0363	Regularization: 0.0009
+Iter: 1540  	Training Loss: -1631.8633    
+    Negative Log Likelihood: 145.2359	Sigma2 Prior: -1777.1000	Regularization: 0.0009
+Iter: 1550  	Training Loss: -1626.1617    
+    Negative Log Likelihood: 153.1023	Sigma2 Prior: -1779.2649	Regularization: 0.0009
+Iter: 1560  	Training Loss: -1629.9730    
+    Negative Log Likelihood: 152.7232	Sigma2 Prior: -1782.6971	Regularization: 0.0009
+Iter: 1570  	Training Loss: -1626.1077    
+    Negative Log Likelihood: 151.6020	Sigma2 Prior: -1777.7106	Regularization: 0.0009
+Iter: 1580  	Training Loss: -1623.7815    
+    Negative Log Likelihood: 157.4818	Sigma2 Prior: -1781.2642	Regularization: 0.0009
+Iter: 1590  	Training Loss: -1627.2080    
+    Negative Log Likelihood: 154.6313	Sigma2 Prior: -1781.8402	Regularization: 0.0009
+Iter: 1600  	Training Loss: -1628.4139    
+    Negative Log Likelihood: 151.4040	Sigma2 Prior: -1779.8188	Regularization: 0.0009
+Iter: 1610  	Training Loss: -1628.3231    
+    Negative Log Likelihood: 153.6829	Sigma2 Prior: -1782.0068	Regularization: 0.0009
+Iter: 1620  	Training Loss: -1630.0891    
+    Negative Log Likelihood: 151.0777	Sigma2 Prior: -1781.1676	Regularization: 0.0009
+Iter: 1630  	Training Loss: -1629.4502    
+    Negative Log Likelihood: 151.0198	Sigma2 Prior: -1780.4708	Regularization: 0.0009
+Iter: 1640  	Training Loss: -1628.1770    
+    Negative Log Likelihood: 151.6487	Sigma2 Prior: -1779.8265	Regularization: 0.0009
+Iter: 1650  	Training Loss: -1628.4374    
+    Negative Log Likelihood: 152.7754	Sigma2 Prior: -1781.2136	Regularization: 0.0009
+Iter: 1660  	Training Loss: -1633.6327    
+    Negative Log Likelihood: 148.8972	Sigma2 Prior: -1782.5308	Regularization: 0.0009
+Iter: 1670  	Training Loss: -1625.9198    
+    Negative Log Likelihood: 154.6089	Sigma2 Prior: -1780.5295	Regularization: 0.0009
+Iter: 1680  	Training Loss: -1627.5137    
+    Negative Log Likelihood: 153.7449	Sigma2 Prior: -1781.2594	Regularization: 0.0009
+Iter: 1690  	Training Loss: -1625.2972    
+    Negative Log Likelihood: 157.4078	Sigma2 Prior: -1782.7058	Regularization: 0.0009
+Iter: 1700  	Training Loss: -1628.1151    
+    Negative Log Likelihood: 153.5970	Sigma2 Prior: -1781.7129	Regularization: 0.0009
+Iter: 1710  	Training Loss: -1634.8231    
+    Negative Log Likelihood: 148.6442	Sigma2 Prior: -1783.4681	Regularization: 0.0009
+Iter: 1720  	Training Loss: -1631.3280    
+    Negative Log Likelihood: 149.3254	Sigma2 Prior: -1780.6543	Regularization: 0.0009
+Iter: 1730  	Training Loss: -1629.1890    
+    Negative Log Likelihood: 152.2289	Sigma2 Prior: -1781.4187	Regularization: 0.0009
+Iter: 1740  	Training Loss: -1635.0659    
+    Negative Log Likelihood: 145.7195	Sigma2 Prior: -1780.7863	Regularization: 0.0009
+Iter: 1750  	Training Loss: -1634.7523    
+    Negative Log Likelihood: 148.7611	Sigma2 Prior: -1783.5143	Regularization: 0.0009
+Iter: 1760  	Training Loss: -1628.1481    
+    Negative Log Likelihood: 155.7443	Sigma2 Prior: -1783.8932	Regularization: 0.0009
+Iter: 1770  	Training Loss: -1630.5651    
+    Negative Log Likelihood: 150.0743	Sigma2 Prior: -1780.6401	Regularization: 0.0009
+Iter: 1780  	Training Loss: -1631.4142    
+    Negative Log Likelihood: 151.7576	Sigma2 Prior: -1783.1727	Regularization: 0.0009
+Iter: 1790  	Training Loss: -1625.1486    
+    Negative Log Likelihood: 156.1644	Sigma2 Prior: -1781.3137	Regularization: 0.0009
+Iter: 1800  	Training Loss: -1632.1105    
+    Negative Log Likelihood: 151.2545	Sigma2 Prior: -1783.3658	Regularization: 0.0009
+Iter: 1810  	Training Loss: -1628.5511    
+    Negative Log Likelihood: 150.8255	Sigma2 Prior: -1779.3776	Regularization: 0.0009
+Iter: 1820  	Training Loss: -1634.7405    
+    Negative Log Likelihood: 146.8214	Sigma2 Prior: -1781.5627	Regularization: 0.0009
+Iter: 1830  	Training Loss: -1630.9459    
+    Negative Log Likelihood: 151.9897	Sigma2 Prior: -1782.9366	Regularization: 0.0009
+Iter: 1840  	Training Loss: -1632.5121    
+    Negative Log Likelihood: 150.6442	Sigma2 Prior: -1783.1572	Regularization: 0.0009
+Iter: 1850  	Training Loss: -1631.2936    
+    Negative Log Likelihood: 148.5442	Sigma2 Prior: -1779.8387	Regularization: 0.0009
+Iter: 1860  	Training Loss: -1629.9324    
+    Negative Log Likelihood: 153.9529	Sigma2 Prior: -1783.8862	Regularization: 0.0009
+Iter: 1870  	Training Loss: -1627.8063    
+    Negative Log Likelihood: 154.6920	Sigma2 Prior: -1782.4993	Regularization: 0.0009
+Iter: 1880  	Training Loss: -1635.1556    
+    Negative Log Likelihood: 147.9564	Sigma2 Prior: -1783.1130	Regularization: 0.0009
+Iter: 1890  	Training Loss: -1626.7657    
+    Negative Log Likelihood: 154.9475	Sigma2 Prior: -1781.7142	Regularization: 0.0009
+Iter: 1900  	Training Loss: -1629.4940    
+    Negative Log Likelihood: 154.9420	Sigma2 Prior: -1784.4370	Regularization: 0.0009
+Iter: 1910  	Training Loss: -1624.7518    
+    Negative Log Likelihood: 159.8169	Sigma2 Prior: -1784.5697	Regularization: 0.0009
+Iter: 1920  	Training Loss: -1631.7659    
+    Negative Log Likelihood: 150.4962	Sigma2 Prior: -1782.2631	Regularization: 0.0009
+Iter: 1930  	Training Loss: -1633.1892    
+    Negative Log Likelihood: 149.3786	Sigma2 Prior: -1782.5688	Regularization: 0.0009
+Iter: 1940  	Training Loss: -1627.8442    
+    Negative Log Likelihood: 151.4894	Sigma2 Prior: -1779.3346	Regularization: 0.0009
+Iter: 1950  	Training Loss: -1630.5253    
+    Negative Log Likelihood: 154.8290	Sigma2 Prior: -1785.3552	Regularization: 0.0009
+Iter: 1960  	Training Loss: -1632.3665    
+    Negative Log Likelihood: 152.2862	Sigma2 Prior: -1784.6536	Regularization: 0.0009
+Iter: 1970  	Training Loss: -1632.5380    
+    Negative Log Likelihood: 149.8401	Sigma2 Prior: -1782.3790	Regularization: 0.0009
+Iter: 1980  	Training Loss: -1634.1375    
+    Negative Log Likelihood: 150.8441	Sigma2 Prior: -1784.9825	Regularization: 0.0009
+Iter: 1990  	Training Loss: -1630.2272    
+    Negative Log Likelihood: 151.7891	Sigma2 Prior: -1782.0172	Regularization: 0.0009
+Changing learning rate to: 2.5e-05
+Iter: 2000  	Training Loss: -1630.8069    
+    Negative Log Likelihood: 153.6930	Sigma2 Prior: -1784.5009	Regularization: 0.0009
+Iter: 2010  	Training Loss: -1632.4169    
+    Negative Log Likelihood: 149.1477	Sigma2 Prior: -1781.5656	Regularization: 0.0009
+Iter: 2020  	Training Loss: -1629.5825    
+    Negative Log Likelihood: 151.3173	Sigma2 Prior: -1780.9008	Regularization: 0.0009
+Iter: 2030  	Training Loss: -1631.9803    
+    Negative Log Likelihood: 154.5470	Sigma2 Prior: -1786.5283	Regularization: 0.0009
+Iter: 2040  	Training Loss: -1633.0389    
+    Negative Log Likelihood: 152.5381	Sigma2 Prior: -1785.5780	Regularization: 0.0009
+Iter: 2050  	Training Loss: -1631.1595    
+    Negative Log Likelihood: 153.4625	Sigma2 Prior: -1784.6230	Regularization: 0.0009
+Iter: 2060  	Training Loss: -1630.8624    
+    Negative Log Likelihood: 152.4964	Sigma2 Prior: -1783.3599	Regularization: 0.0009
+Iter: 2070  	Training Loss: -1632.0146    
+    Negative Log Likelihood: 151.8591	Sigma2 Prior: -1783.8748	Regularization: 0.0009
+Iter: 2080  	Training Loss: -1635.2983    
+    Negative Log Likelihood: 148.2332	Sigma2 Prior: -1783.5326	Regularization: 0.0009
+Iter: 2090  	Training Loss: -1637.0782    
+    Negative Log Likelihood: 147.5369	Sigma2 Prior: -1784.6161	Regularization: 0.0009
+Iter: 2100  	Training Loss: -1630.2239    
+    Negative Log Likelihood: 153.7244	Sigma2 Prior: -1783.9492	Regularization: 0.0009
+Iter: 2110  	Training Loss: -1630.9271    
+    Negative Log Likelihood: 153.7170	Sigma2 Prior: -1784.6450	Regularization: 0.0009
+Iter: 2120  	Training Loss: -1627.2781    
+    Negative Log Likelihood: 154.2755	Sigma2 Prior: -1781.5546	Regularization: 0.0009
+Iter: 2130  	Training Loss: -1629.8462    
+    Negative Log Likelihood: 157.6852	Sigma2 Prior: -1787.5323	Regularization: 0.0009
+Iter: 2140  	Training Loss: -1633.9263    
+    Negative Log Likelihood: 152.9363	Sigma2 Prior: -1786.8636	Regularization: 0.0010
+Iter: 2150  	Training Loss: -1630.5701    
+    Negative Log Likelihood: 152.0473	Sigma2 Prior: -1782.6184	Regularization: 0.0010
+Iter: 2160  	Training Loss: -1632.4275    
+    Negative Log Likelihood: 149.8948	Sigma2 Prior: -1782.3232	Regularization: 0.0010
+Iter: 2170  	Training Loss: -1634.8270    
+    Negative Log Likelihood: 149.9088	Sigma2 Prior: -1784.7368	Regularization: 0.0010
+Iter: 2180  	Training Loss: -1631.0688    
+    Negative Log Likelihood: 154.8411	Sigma2 Prior: -1785.9110	Regularization: 0.0010
+Iter: 2190  	Training Loss: -1631.9507    
+    Negative Log Likelihood: 151.0511	Sigma2 Prior: -1783.0028	Regularization: 0.0010
+Iter: 2200  	Training Loss: -1635.3571    
+    Negative Log Likelihood: 151.0961	Sigma2 Prior: -1786.4541	Regularization: 0.0010
+Iter: 2210  	Training Loss: -1631.0420    
+    Negative Log Likelihood: 151.5253	Sigma2 Prior: -1782.5684	Regularization: 0.0010
+Iter: 2220  	Training Loss: -1631.1040    
+    Negative Log Likelihood: 153.0915	Sigma2 Prior: -1784.1965	Regularization: 0.0010
+Iter: 2230  	Training Loss: -1631.0341    
+    Negative Log Likelihood: 154.9355	Sigma2 Prior: -1785.9706	Regularization: 0.0010
+Iter: 2240  	Training Loss: -1631.6669    
+    Negative Log Likelihood: 154.7864	Sigma2 Prior: -1786.4542	Regularization: 0.0010
+Iter: 2250  	Training Loss: -1632.5085    
+    Negative Log Likelihood: 150.7964	Sigma2 Prior: -1783.3059	Regularization: 0.0010
+Iter: 2260  	Training Loss: -1633.9192    
+    Negative Log Likelihood: 150.3641	Sigma2 Prior: -1784.2843	Regularization: 0.0010
+Iter: 2270  	Training Loss: -1631.7001    
+    Negative Log Likelihood: 155.4390	Sigma2 Prior: -1787.1400	Regularization: 0.0010
+Iter: 2280  	Training Loss: -1631.7278    
+    Negative Log Likelihood: 153.2998	Sigma2 Prior: -1785.0286	Regularization: 0.0010
+Iter: 2290  	Training Loss: -1636.0874    
+    Negative Log Likelihood: 152.0237	Sigma2 Prior: -1788.1121	Regularization: 0.0010
+Iter: 2300  	Training Loss: -1634.4480    
+    Negative Log Likelihood: 149.7491	Sigma2 Prior: -1784.1980	Regularization: 0.0010
+Iter: 2310  	Training Loss: -1634.5704    
+    Negative Log Likelihood: 152.5321	Sigma2 Prior: -1787.1035	Regularization: 0.0010
+Iter: 2320  	Training Loss: -1627.9996    
+    Negative Log Likelihood: 157.3121	Sigma2 Prior: -1785.3127	Regularization: 0.0010
+Iter: 2330  	Training Loss: -1634.4153    
+    Negative Log Likelihood: 148.7023	Sigma2 Prior: -1783.1185	Regularization: 0.0010
+Iter: 2340  	Training Loss: -1633.1230    
+    Negative Log Likelihood: 153.9634	Sigma2 Prior: -1787.0874	Regularization: 0.0010
+Iter: 2350  	Training Loss: -1634.0771    
+    Negative Log Likelihood: 152.6141	Sigma2 Prior: -1786.6923	Regularization: 0.0010
+Iter: 2360  	Training Loss: -1638.4363    
+    Negative Log Likelihood: 146.1113	Sigma2 Prior: -1784.5485	Regularization: 0.0010
+Iter: 2370  	Training Loss: -1635.3872    
+    Negative Log Likelihood: 150.0330	Sigma2 Prior: -1785.4211	Regularization: 0.0010
+Iter: 2380  	Training Loss: -1634.8915    
+    Negative Log Likelihood: 151.9746	Sigma2 Prior: -1786.8671	Regularization: 0.0010
+Iter: 2390  	Training Loss: -1629.4910    
+    Negative Log Likelihood: 154.4081	Sigma2 Prior: -1783.9000	Regularization: 0.0010
+Iter: 2400  	Training Loss: -1634.1888    
+    Negative Log Likelihood: 154.7499	Sigma2 Prior: -1788.9397	Regularization: 0.0010
+Iter: 2410  	Training Loss: -1632.2593    
+    Negative Log Likelihood: 153.4021	Sigma2 Prior: -1785.6624	Regularization: 0.0010
+Iter: 2420  	Training Loss: -1632.1993    
+    Negative Log Likelihood: 156.4235	Sigma2 Prior: -1788.6239	Regularization: 0.0010
+Iter: 2430  	Training Loss: -1633.6943    
+    Negative Log Likelihood: 149.3996	Sigma2 Prior: -1783.0950	Regularization: 0.0010
+Iter: 2440  	Training Loss: -1634.1521    
+    Negative Log Likelihood: 154.5826	Sigma2 Prior: -1788.7357	Regularization: 0.0010
+Iter: 2450  	Training Loss: -1632.9987    
+    Negative Log Likelihood: 156.3599	Sigma2 Prior: -1789.3595	Regularization: 0.0010
+Iter: 2460  	Training Loss: -1632.9397    
+    Negative Log Likelihood: 153.5457	Sigma2 Prior: -1786.4863	Regularization: 0.0010
+Iter: 2470  	Training Loss: -1633.2328    
+    Negative Log Likelihood: 152.8388	Sigma2 Prior: -1786.0725	Regularization: 0.0010
+Iter: 2480  	Training Loss: -1630.4073    
+    Negative Log Likelihood: 159.5157	Sigma2 Prior: -1789.9241	Regularization: 0.0010
+Iter: 2490  	Training Loss: -1637.7980    
+    Negative Log Likelihood: 150.4662	Sigma2 Prior: -1788.2651	Regularization: 0.0010
+Iter: 2500  	Training Loss: -1636.3899    
+    Negative Log Likelihood: 150.0806	Sigma2 Prior: -1786.4714	Regularization: 0.0010
+Iter: 2510  	Training Loss: -1630.7047    
+    Negative Log Likelihood: 157.3585	Sigma2 Prior: -1788.0642	Regularization: 0.0010
+Iter: 2520  	Training Loss: -1635.8928    
+    Negative Log Likelihood: 155.3846	Sigma2 Prior: -1791.2784	Regularization: 0.0010
+Iter: 2530  	Training Loss: -1635.9708    
+    Negative Log Likelihood: 146.1812	Sigma2 Prior: -1782.1530	Regularization: 0.0010
+Iter: 2540  	Training Loss: -1635.2200    
+    Negative Log Likelihood: 153.3896	Sigma2 Prior: -1788.6106	Regularization: 0.0010
+Iter: 2550  	Training Loss: -1632.4697    
+    Negative Log Likelihood: 152.9183	Sigma2 Prior: -1785.3889	Regularization: 0.0010
+Iter: 2560  	Training Loss: -1635.6937    
+    Negative Log Likelihood: 151.2274	Sigma2 Prior: -1786.9221	Regularization: 0.0010
+Iter: 2570  	Training Loss: -1637.1458    
+    Negative Log Likelihood: 149.1894	Sigma2 Prior: -1786.3362	Regularization: 0.0010
+Iter: 2580  	Training Loss: -1639.9961    
+    Negative Log Likelihood: 146.0941	Sigma2 Prior: -1786.0912	Regularization: 0.0010
+Iter: 2590  	Training Loss: -1637.4282    
+    Negative Log Likelihood: 148.2728	Sigma2 Prior: -1785.7020	Regularization: 0.0010
+Iter: 2600  	Training Loss: -1632.8429    
+    Negative Log Likelihood: 155.2636	Sigma2 Prior: -1788.1074	Regularization: 0.0010
+Iter: 2610  	Training Loss: -1636.7214    
+    Negative Log Likelihood: 150.4876	Sigma2 Prior: -1787.2100	Regularization: 0.0010
+Iter: 2620  	Training Loss: -1636.3308    
+    Negative Log Likelihood: 151.8997	Sigma2 Prior: -1788.2314	Regularization: 0.0010
+Iter: 2630  	Training Loss: -1634.5659    
+    Negative Log Likelihood: 155.0183	Sigma2 Prior: -1789.5852	Regularization: 0.0010
+Iter: 2640  	Training Loss: -1634.9634    
+    Negative Log Likelihood: 150.1810	Sigma2 Prior: -1785.1454	Regularization: 0.0010
+Iter: 2650  	Training Loss: -1632.8704    
+    Negative Log Likelihood: 157.7620	Sigma2 Prior: -1790.6333	Regularization: 0.0010
+Iter: 2660  	Training Loss: -1636.0110    
+    Negative Log Likelihood: 156.8595	Sigma2 Prior: -1792.8715	Regularization: 0.0010
+Iter: 2670  	Training Loss: -1634.2711    
+    Negative Log Likelihood: 148.7441	Sigma2 Prior: -1783.0162	Regularization: 0.0010
+Iter: 2680  	Training Loss: -1633.1686    
+    Negative Log Likelihood: 153.4045	Sigma2 Prior: -1786.5740	Regularization: 0.0010
+Iter: 2690  	Training Loss: -1633.8536    
+    Negative Log Likelihood: 155.9703	Sigma2 Prior: -1789.8250	Regularization: 0.0010
+Iter: 2700  	Training Loss: -1631.7673    
+    Negative Log Likelihood: 153.5360	Sigma2 Prior: -1785.3043	Regularization: 0.0010
+Iter: 2710  	Training Loss: -1638.0546    
+    Negative Log Likelihood: 150.7111	Sigma2 Prior: -1788.7666	Regularization: 0.0010
+Iter: 2720  	Training Loss: -1639.2826    
+    Negative Log Likelihood: 147.9342	Sigma2 Prior: -1787.2178	Regularization: 0.0010
+Iter: 2730  	Training Loss: -1634.6755    
+    Negative Log Likelihood: 153.9368	Sigma2 Prior: -1788.6133	Regularization: 0.0010
+Iter: 2740  	Training Loss: -1634.3137    
+    Negative Log Likelihood: 150.6293	Sigma2 Prior: -1784.9440	Regularization: 0.0010
+Iter: 2750  	Training Loss: -1637.4827    
+    Negative Log Likelihood: 151.6804	Sigma2 Prior: -1789.1641	Regularization: 0.0010
+Iter: 2760  	Training Loss: -1637.6152    
+    Negative Log Likelihood: 148.9752	Sigma2 Prior: -1786.5914	Regularization: 0.0010
+Iter: 2770  	Training Loss: -1636.3743    
+    Negative Log Likelihood: 153.3743	Sigma2 Prior: -1789.7496	Regularization: 0.0010
+Iter: 2780  	Training Loss: -1638.6366    
+    Negative Log Likelihood: 147.3199	Sigma2 Prior: -1785.9575	Regularization: 0.0010
+Iter: 2790  	Training Loss: -1634.3433    
+    Negative Log Likelihood: 154.7290	Sigma2 Prior: -1789.0732	Regularization: 0.0010
+Iter: 2800  	Training Loss: -1637.4940    
+    Negative Log Likelihood: 152.4489	Sigma2 Prior: -1789.9440	Regularization: 0.0010
+Iter: 2810  	Training Loss: -1638.7517    
+    Negative Log Likelihood: 148.9042	Sigma2 Prior: -1787.6569	Regularization: 0.0010
+Iter: 2820  	Training Loss: -1634.5046    
+    Negative Log Likelihood: 154.1210	Sigma2 Prior: -1788.6266	Regularization: 0.0010
+Iter: 2830  	Training Loss: -1640.4225    
+    Negative Log Likelihood: 151.7021	Sigma2 Prior: -1792.1256	Regularization: 0.0010
+Iter: 2840  	Training Loss: -1639.4766    
+    Negative Log Likelihood: 152.4044	Sigma2 Prior: -1791.8820	Regularization: 0.0010
+Iter: 2850  	Training Loss: -1640.7886    
+    Negative Log Likelihood: 148.4829	Sigma2 Prior: -1789.2725	Regularization: 0.0010
+Iter: 2860  	Training Loss: -1638.7883    
+    Negative Log Likelihood: 149.0503	Sigma2 Prior: -1787.8396	Regularization: 0.0010
+Iter: 2870  	Training Loss: -1640.0642    
+    Negative Log Likelihood: 147.7036	Sigma2 Prior: -1787.7688	Regularization: 0.0010
+Iter: 2880  	Training Loss: -1642.3505    
+    Negative Log Likelihood: 147.6729	Sigma2 Prior: -1790.0244	Regularization: 0.0010
+Iter: 2890  	Training Loss: -1634.2787    
+    Negative Log Likelihood: 154.1300	Sigma2 Prior: -1788.4097	Regularization: 0.0010
+Iter: 2900  	Training Loss: -1636.0867    
+    Negative Log Likelihood: 155.5786	Sigma2 Prior: -1791.6663	Regularization: 0.0010
+Iter: 2910  	Training Loss: -1635.9977    
+    Negative Log Likelihood: 155.8449	Sigma2 Prior: -1791.8436	Regularization: 0.0010
+Iter: 2920  	Training Loss: -1642.0618    
+    Negative Log Likelihood: 149.6274	Sigma2 Prior: -1791.6902	Regularization: 0.0010
+Iter: 2930  	Training Loss: -1639.5415    
+    Negative Log Likelihood: 146.5375	Sigma2 Prior: -1786.0800	Regularization: 0.0010
+Iter: 2940  	Training Loss: -1639.2671    
+    Negative Log Likelihood: 150.2298	Sigma2 Prior: -1789.4978	Regularization: 0.0010
+Iter: 2950  	Training Loss: -1638.8916    
+    Negative Log Likelihood: 149.8146	Sigma2 Prior: -1788.7073	Regularization: 0.0010
+Iter: 2960  	Training Loss: -1641.9468    
+    Negative Log Likelihood: 147.4106	Sigma2 Prior: -1789.3583	Regularization: 0.0010
+Iter: 2970  	Training Loss: -1635.9998    
+    Negative Log Likelihood: 155.3785	Sigma2 Prior: -1791.3793	Regularization: 0.0010
+Iter: 2980  	Training Loss: -1637.7686    
+    Negative Log Likelihood: 152.9506	Sigma2 Prior: -1790.7201	Regularization: 0.0010
+Iter: 2990  	Training Loss: -1639.5430    
+    Negative Log Likelihood: 152.8465	Sigma2 Prior: -1792.3904	Regularization: 0.0010
+Iter: 2999  	Training Loss: -1641.9189    
+    Negative Log Likelihood: 150.5215	Sigma2 Prior: -1792.4415	Regularization: 0.0010
+Done training with 3000 iterations

@@ -17,9 +17,15 @@ import numpy as np
 
 import uisrnn
 
+import tensorflow as tf 
 
-SAVED_MODEL_NAME = 'pretrained/saved_model.uisrnn_benchmark'
+if tf.test.gpu_device_name(): 
+  print('Default GPU Device:{}'.format(tf.test.gpu_device_name()))
+else:
+  print("Please install GPU version of TF")
 
+SAVED_MODEL_NAME = '/scratch/hh2263/VCTK/saved_model_vctk_muda_updated_transfer.uisrnn_benchmark'
+original_model = '/home/hh2263/Speaker-Diarization/pretrained/saved_model.uisrnn_benchmark'
 
 def diarization_experiment(model_args, training_args, inference_args):
   """Experiment pipeline.
@@ -35,13 +41,22 @@ def diarization_experiment(model_args, training_args, inference_args):
   predicted_labels = []
   test_record = []
 
-  train_data = np.load('./ghostvlad/training_data.npz')
+  np_load_old = np.load
+  # modify the default parameters of np.load
+  np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
+  
+  train_data = np.load('/scratch/hh2263/VCTK/training_data_vctk_muda_updated.npz')
+  
+  # restore np.load for future normal usage
+  np.load = np_load_old
+
   train_sequence = train_data['train_sequence']
   train_cluster_id = train_data['train_cluster_id']
   train_sequence_list = [seq.astype(float)+0.00001 for seq in train_sequence]
   train_cluster_id_list = [np.array(cid).astype(str) for cid in train_cluster_id]
 
   model = uisrnn.UISRNN(model_args)
+  model.load(original_model)
 
   # training
   model.fit(train_sequence_list, train_cluster_id_list, training_args)
@@ -77,7 +92,7 @@ def main():
   model_args.rnn_depth = 1
   model_args.rnn_hidden_size = 512
   training_args.enforce_cluster_id_uniqueness = False
-  training_args.batch_size = 30
+  training_args.batch_size = 15#30
   training_args.learning_rate = 1e-4
   training_args.train_iteration = 3000
   training_args.num_permutations = 20

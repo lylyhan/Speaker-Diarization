@@ -29,9 +29,10 @@ def parse_arguments():
       - `inference_args`: inference arguments
   """
   # model configurations
-  model_parser = argparse.ArgumentParser(
+  model_parser = argparse.ArgumentParser( 
       description='Model configurations.', add_help=False)
-
+  
+  
   model_parser.add_argument(
       '--observation_dim',
       default=_DEFAULT_OBSERVATION_DIM,
@@ -186,12 +187,14 @@ def parse_arguments():
            'Then we return the inference results on the last duplicate as the '
            'final prediction for the test sequence.')
 
+  
+
   # a super parser for sanity checks
   super_parser = argparse.ArgumentParser(
       parents=[model_parser, training_parser, inference_parser])
 
   # get arguments
-  super_parser.parse_args()
+  super_parser.parse_known_args()
   model_args, _ = model_parser.parse_known_args()
   training_args, _ = training_parser.parse_known_args()
   inference_args, _ = inference_parser.parse_known_args()

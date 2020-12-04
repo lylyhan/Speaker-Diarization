@@ -3,10 +3,23 @@ from __future__ import absolute_import
 import keras
 import tensorflow as tf
 import keras.backend as K
-
+import keras.backend.tensorflow_backend as tfback
 import backbone
 weight_decay = 1e-4
 
+def _get_available_gpus():
+    """Get a list of available gpu devices (formatted as strings).
+
+    # Returns
+        A list of available GPU devices.
+    """
+    #global _LOCAL_DEVICES
+    if tfback._LOCAL_DEVICES is None:
+        devices = tf.config.list_logical_devices()
+        tfback._LOCAL_DEVICES = [x.name for x in devices]
+    return [x for x in tfback._LOCAL_DEVICES if 'device:gpu' in x.lower()]
+
+keras.backend.tensorflow_backend._get_available_gpus = _get_available_gpus
 
 class ModelMGPU(keras.Model):
     def __init__(self, ser_model, gpus):

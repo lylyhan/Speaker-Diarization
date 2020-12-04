@@ -117,11 +117,12 @@ def prepare_data(SRC_PATH):
     allspk_list = []
     for i,spkDir in enumerate(wavDir):   # Each speaker's directory
         spk = spkDir    # speaker name
-        wavPath = os.path.join(SRC_PATH, spkDir, 'audio')
+        wavPath = os.path.join(SRC_PATH, spkDir)
         for wav in os.listdir(wavPath): # wavfile
-            utter_path = os.path.join(wavPath, wav)
-            allpath_list.append(utter_path)
-            allspk_list.append(i)
+            if wav[-3:]=="wav":
+                utter_path = os.path.join(wavPath, wav)
+                allpath_list.append(utter_path)
+                allspk_list.append(i)
         if(i>100):
             break
 
@@ -174,7 +175,8 @@ def main():
     # The feature extraction process has to be done sample-by-sample,
     # because each sample is of different lengths.
 
-    SRC_PATH = r'/data/dataset/SpkWav120'
+    #SRC_PATH = r'/data/dataset/SpkWav120'
+    SRC_PATH = "/scratch/hh2263/VCTK/VCTK-Corpus/wav48_muda/" 
     path_spk_tuples = prepare_data(SRC_PATH)
     train_sequence = []
     train_cluster_id = []
@@ -195,7 +197,7 @@ def main():
         train_cluster_id.append(utterance_speakers)
         print("epoch:{}, utterance length: {}, speakers: {}".format(epoch, len(utterance_speakers), len(path_spks)))
 
-    np.savez('training_data', train_sequence=train_sequence, train_cluster_id=train_cluster_id)
+    np.savez('/scratch/hh2263/VCTK/training_data_vctk_muda_updated', train_sequence=train_sequence, train_cluster_id=train_cluster_id)
 
 
 if __name__ == "__main__":

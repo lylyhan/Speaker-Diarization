@@ -1,0 +1,88 @@
+2020-11-29 14:51:44.697375: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2020-11-29 14:51:44.705551: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 3000050000 Hz
+2020-11-29 14:51:44.705977: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2b5f5459d1f0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-29 14:51:44.705997: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-11-29 14:51:44.706206: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/apps/gcc/6.3.0/lib64:/share/apps/gcc/6.3.0/lib:/share/apps/mpc/1.0.3/gnu/lib:/share/apps/mpfr/3.1.5/gnu/lib:/share/apps/gmp/6.1.2/gnu/lib:/share/apps/centos/7/usr/lib64:/opt/slurm/lib64
+2020-11-29 14:51:44.706225: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-11-29 14:51:44.706243: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (c39-02): /proc/driver/nvidia/version does not exist
+Using TensorFlow backend.
+executing program?? /scratch/hh2263/Spokenweb_data/resampled/01 Daryl Hine I006-11-158.wav
+in while loop
+0 2951.929625
+in while loop
+600 2951.929625
+in while loop
+1200 2951.929625
+in while loop
+1800 2951.929625
+in while loop
+2400 2951.929625
+<_io.BufferedWriter name='/scratch/hh2263/Spokenweb_data/resampled/stream_10min_score/01 Daryl Hine I006-11-158.pkl'>  finished!
+2020-11-29 15:00:26.922676: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2020-11-29 15:00:26.930551: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 3000050000 Hz
+2020-11-29 15:00:26.930961: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2ad54c59d340 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-29 15:00:26.930981: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-11-29 15:00:26.931192: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/apps/gcc/6.3.0/lib64:/share/apps/gcc/6.3.0/lib:/share/apps/mpc/1.0.3/gnu/lib:/share/apps/mpfr/3.1.5/gnu/lib:/share/apps/gmp/6.1.2/gnu/lib:/share/apps/centos/7/usr/lib64:/opt/slurm/lib64
+2020-11-29 15:00:26.931216: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-11-29 15:00:26.931235: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (c39-02): /proc/driver/nvidia/version does not exist
+Using TensorFlow backend.
+executing program?? /scratch/hh2263/Spokenweb_data/resampled/01 _Elly Mandell_ I006-11-029 NEW.wav
+in while loop
+0 4271.241
+in while loop
+600 4271.241
+in while loop
+1200 4271.241
+in while loop
+1800 4271.241
+in while loop
+2400 4271.241
+in while loop
+3000 4271.241
+in while loop
+3600 4271.241
+in while loop
+4200 4271.241
+<_io.BufferedWriter name='/scratch/hh2263/Spokenweb_data/resampled/stream_10min_score/01 _Elly Mandell_ I006-11-029 NEW.pkl'>  finished!
+2020-11-29 15:12:40.124281: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2020-11-29 15:12:40.132238: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 3000050000 Hz
+2020-11-29 15:12:40.132659: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2ba6942bd0a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-29 15:12:40.132684: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-11-29 15:12:40.132898: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/apps/gcc/6.3.0/lib64:/share/apps/gcc/6.3.0/lib:/share/apps/mpc/1.0.3/gnu/lib:/share/apps/mpfr/3.1.5/gnu/lib:/share/apps/gmp/6.1.2/gnu/lib:/share/apps/centos/7/usr/lib64:/opt/slurm/lib64
+2020-11-29 15:12:40.132918: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-11-29 15:12:40.132937: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (c39-02): /proc/driver/nvidia/version does not exist
+Using TensorFlow backend.
+executing program?? /scratch/hh2263/Spokenweb_data/resampled/01 John Logan 1.wav
+in while loop
+0 3045.15775
+in while loop
+600 3045.15775
+in while loop
+1200 3045.15775
+in while loop
+1800 3045.15775
+in while loop
+2400 3045.15775
+in while loop
+3000 3045.15775
+<_io.BufferedWriter name='/scratch/hh2263/Spokenweb_data/resampled/stream_10min_score/01 John Logan 1.pkl'>  finished!
+2020-11-29 15:18:33.445673: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2020-11-29 15:18:33.453617: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 3000050000 Hz
+2020-11-29 15:18:33.454033: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2ac6716ebfb0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-29 15:18:33.454053: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-11-29 15:18:33.454263: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/apps/gcc/6.3.0/lib64:/share/apps/gcc/6.3.0/lib:/share/apps/mpc/1.0.3/gnu/lib:/share/apps/mpfr/3.1.5/gnu/lib:/share/apps/gmp/6.1.2/gnu/lib:/share/apps/centos/7/usr/lib64:/opt/slurm/lib64
+2020-11-29 15:18:33.454283: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2020-11-29 15:18:33.454304: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (c39-02): /proc/driver/nvidia/version does not exist
+Using TensorFlow backend.
+executing program?? /scratch/hh2263/Spokenweb_data/resampled/01 Robert Creeley I006-11-089.1=Ac.2.wav
+in while loop
+0 2432.7546875
+in while loop
+600 2432.7546875
+in while loop
+1200 2432.7546875
+in while loop
+1800 2432.7546875
+in while loop
+2400 2432.7546875
+<_io.BufferedWriter name='/scratch/hh2263/Spokenweb_data/resampled/stream_10min_score/01 Robert Creeley I006-11-089.1=Ac.2.pkl'>  finished!

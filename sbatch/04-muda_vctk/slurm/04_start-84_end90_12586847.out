@@ -1,0 +1,20 @@
+making  p252
+making  p335
+making  p326
+make p326_125
+Traceback (most recent call last):
+  File "/home/hh2263/Speaker-Diarization/augmentation_ver3.py", line 112, in <module>
+    augmentation(SRC_path,ir_path,idx_start,idx_end)
+  File "/home/hh2263/Speaker-Diarization/augmentation_ver3.py", line 101, in augmentation
+    jam_out)
+  File "/home/hh2263/muda/muda/core.py", line 168, in save
+    psf.write(filename_audio, y, sr, **kwargs)
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/soundfile.py", line 431, in write
+    subtype, endian, format, closefd) as f:
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/soundfile.py", line 740, in __init__
+    self._file = self._open(file, mode_int, closefd)
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/soundfile.py", line 1265, in _open
+    "Error opening {0!r}: ".format(self.name))
+  File "/home/hh2263/miniconda3/envs/spokenweb/lib/python3.7/site-packages/soundfile.py", line 1455, in _error_check
+    raise RuntimeError(prefix + _ffi.string(err_str).decode('utf-8', 'replace'))
+RuntimeError: Error opening '/scratch/hh2263/VCTK/VCTK-Corpus/wav48_muda_2/p326/p326_125_g00.wav': System error.
